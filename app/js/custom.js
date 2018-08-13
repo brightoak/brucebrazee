@@ -67,5 +67,5 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Smooth scroll
-  new SmoothScroll('.nav a');
+  new SmoothScroll('.nav a', { updateURL: false });
 });
