@@ -424,6 +424,9 @@ a{
 	.mobile-hidden{
 		display: none;
 	}	
+	.mobile-visible{
+		display: block;
+	}
 	.mobile-column-direction{
 		flex-direction: column;
 		.align-left,

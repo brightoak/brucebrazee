@@ -37,31 +37,47 @@
     padding-left: 5rem;
     padding-right: 5rem;
   }
+  #container{
+    margin: 0;
+  }
 }
-@media screen and (max-width:700px) {
+@media screen and (max-width:600px) {
   #header{
-    flex-direction: column;
-    .logo{
-      margin-bottom: 3rem;
+    padding:0 1rem;
+    &.headroom--unpinned{
+      transform: translateY(0%);
     }
-    .align-right{
-      margin: 0 auto;
-    }
-    .nav{
-      font-weight: bold;
+  }
+  .nav{
+    font-size: 1.2rem;
+    li{
+      margin-left: .5rem;
     }
   }
 }
 @media screen and (max-width:500px) {
-  #container{
-    margin: 1rem;
-  }
   #header{
-    padding: 1rem;
+    .logo{
+			img{
+				width: 2.4rem;
+				height: 4.5rem;
+			}
+			.logo-text{
+				width: 7.1rem;
+				height: 3.3rem;
+			}
+    }
+    top: 1rem;
   }
   .hero{
+    padding-top: 4.5rem;
+    margin-bottom: 3rem;
     h1{
-      font-size: 3.3rem;
+      font-size: 4.5rem;
+    }
+    .button{
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
   }
   .samples{
@@ -77,18 +93,28 @@
     padding-right: 1.6rem;
   }
   .subscribe-form{
+    padding-bottom: 1rem;
+    label{
+      text-align: center;
+      strong{
+        font-size: 3rem;
+      }
+      span{
+        font-size: 1.5rem;
+      }
+    }
     .set{
       height: auto;
       & > *{
         height: 50px !important;
-        border-radius: 50px;
-      }
-      .txt{
-        margin-bottom: 30px;
       }
       .button{
         padding-top: 0;
         padding-bottom: 0;
+      }
+      .txt{
+        padding-left: 1.4rem;
+        padding-right: 1.4rem;
       }
     }
   }
@@ -105,5 +131,21 @@
   #request-popup{
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+  #products{
+    .content{
+      .column{
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}
+@media screen and (max-width:352px) {
+  .nav{
+    font-size: 1rem;
+    li{
+      margin-left: .3rem;
+    }
   }
 }

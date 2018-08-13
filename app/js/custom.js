@@ -1,14 +1,13 @@
 'use strict';
 
-// 1. Sticky Header
-
-// var headroom = new Headroom(document.querySelector('#header'));
-
-// headroom.init();
-
 document.addEventListener("DOMContentLoaded", function () {
 
   var bodyTag = document.querySelector('body');
+
+  // Sticky Header
+
+  var headroom = new Headroom(document.querySelector('#header'));
+  headroom.init();
 
   // Samples slider
   var samplesSlider = document.getElementById('samples-slider');
@@ -67,5 +66,5 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Smooth scroll
-  new SmoothScroll('.nav a', { updateURL: false });
+  new SmoothScroll('.nav a', { updateURL: false, offset: 70 });
 });
