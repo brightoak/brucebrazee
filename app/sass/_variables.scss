@@ -1,0 +1,29 @@
+$fonts: Montserrat,Arial,sans-serif;
+$fonts2: LibreBaskerville,'Times New Roman',serif;
+$fonts3: Quattrocento,'Times New Roman',serif;
+
+// rem is based on font size of <html> element, default set to 10px
+// so 150rem = 1500px
+$pagewidth: 150rem;
+$pagewidth-wider: 170rem;
+
+$bodycolor: #666;
+$themecolor: #cfbc67;
+$linkcolor: $themecolor;
+$linkcolorhover: darken($themecolor,10%);
+
+$fonts-path: "../fonts/";
+
+@mixin animation($cssrule: all, $delay:.25s, $effect:ease-in-out) {
+  transition: $cssrule $delay $effect;
+}
+
+@mixin borderradius($rad: 5px) {
+  border-radius: $rad;
+}
+
+@mixin vertical-align($position: absolute) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}

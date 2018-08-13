@@ -1,0 +1,593 @@
+/**
+
+	1. Basic
+	2. Layout
+	3. Button
+	4. Flexbox grid
+	5. Default sizes based on page width
+	6. Fullwidth image inside container
+	7. Section Background cover
+	8. Section
+	9. Text CSS
+	10. Card
+	11. List
+
+**/
+
+// 1. Basic
+html{
+	height:100%;
+	font-size: 10px;
+}
+body{
+	color:$bodycolor;
+	font:1.6rem/2.4rem $fonts;
+	min-width:32rem;
+	background-color:#fff;
+}
+a{
+  @include animation;
+}
+.oveflow-h{
+	overflow: hidden;
+}
+.hidden{
+	display: none;
+}
+.block{
+	display: block;
+}
+.inline-block{
+	display: inline-block;
+}
+.invisible{
+	opacity: 0;
+}
+.visible{
+	opacity: 1;
+}
+.rounded{
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+// 2. Layout
+.wrapper{
+	max-width: $pagewidth;
+	padding: 0 2rem;
+	margin: 0 auto;
+	box-sizing: border-box;
+	@media screen and (max-width:768px) {
+		padding: 0 1rem;
+	}
+	&-wide{
+		@extend .wrapper;
+		box-sizing: content-box;
+		max-width: $pagewidth-wider;
+	}
+}
+
+// 3. Button
+.button{
+	color: #454a4d;
+	border: .2rem solid #454a4d;
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 2rem;
+	padding: 1.8rem 2.8rem;
+	display: inline-block;
+	letter-spacing: .1rem;
+	font-size: 1.3rem;
+	text-align: center;
+	min-width: 19.4rem;
+	@include animation;
+	.buttons &:not(:last-child){
+		margin-right: 1.3rem;
+	}
+	&:hover{
+		color:#fff;
+		border-color: #cfbc67;
+		background: #cfbc67;
+	}
+	.section-dark &,
+	.hero &{
+		border-color: #fff;
+		color: #fff;
+		&:hover{
+			color: #fff;
+			border-color: #aaa;
+			background: none;
+		}
+	}
+}
+.cta-button-holder{
+	text-align: center;
+}
+
+.close-cross{
+	position: absolute;
+	width: 2.6rem;
+	height: 2.6rem;
+	right: 4.6rem;
+	top: 7rem;
+	transform: rotate(45deg);
+	cursor: pointer;
+	&:before,
+	&:after{
+		content: '';
+		position: absolute;
+		left: 1.2rem;
+		top: 0;
+		background: #fff;
+		width: .2rem;
+		height: 2.6rem;
+	}
+	&:after{
+		width: 2.6rem;
+		height: .2rem;
+		left: 0;
+		top: 1.2rem;
+	}
+}
+
+@mixin flexmargins($flexmargin: 1.5rem) {
+  margin-left: -$flexmargin;
+	margin-right: -$flexmargin;
+	& > .column{
+		box-sizing: border-box;
+		padding-left: $flexmargin;
+		padding-right: $flexmargin;
+		margin-bottom: $flexmargin*2;
+	}
+}
+
+// 4. Flexbox grid
+.is-flex{
+	display: flex;
+	flex-wrap: wrap;
+	&.is-column-direction{
+		flex-direction: column;
+		& > .column:not(.is-flex){
+			width: 100% !important;
+		}
+	}
+	&.is-vcentered{
+		align-items: center;
+	}
+	&.is-multiline{
+		flex-wrap: wrap;
+	}
+	&.flexmargins1{
+		@include flexmargins(1rem);
+	}
+	&.flexmargins1-5{
+		@include flexmargins(1.5rem);
+	}
+	&.flexmargins2{
+		@include flexmargins(2rem);
+	}
+	&.flexmargins2-5{
+		@include flexmargins(2.5rem);
+	}
+	&.flexmargins3{
+		@include flexmargins(3rem);
+	}
+	&.flexmargins3-5{
+		@include flexmargins(3.5rem);
+	}
+	&.flexmargins4{
+		@include flexmargins(4rem);
+	}
+  @for $i from 1 through 10 {
+    &.has-#{$i}items{
+      & > .column{
+				max-width: calc(100% / #{$i});
+				width: 100%;
+				@for $i from 1 through 12 {
+					&.itemsize-#{$i}{
+						width: 100%;
+						max-width: percentage($i / 12);
+					}
+				}
+				@media screen and (max-width:768px) {
+					@for $i from 1 through 12 {
+						&.tablet-itemsize-#{$i}{
+							width: 100%;
+							max-width: percentage($i / 12);
+						}
+					}
+				}
+				@media screen and (max-width:500px) {
+					@for $i from 1 through 12 {
+						&.mobile-itemsize-#{$i}{
+							width: 100%;
+							max-width: percentage($i / 12);
+						}
+					}
+				}
+			}
+			@include flexmargins(1.5rem);
+
+			&.flexmargins1{
+				@include flexmargins(1rem);
+			}
+			&.flexmargins1-5{
+				@include flexmargins(1.5rem);
+			}
+			&.flexmargins2{
+				@include flexmargins(2rem);
+			}
+			&.flexmargins2-5{
+				@include flexmargins(2.5rem);
+			}
+			&.flexmargins3{
+				@include flexmargins(3rem);
+			}
+			&.flexmargins3-5{
+				@include flexmargins(3.5rem);
+			}
+			&.flexmargins4{
+				@include flexmargins(4rem);
+			}
+			&.sidemargins{
+				margin-left: 0;
+				margin-right: 0;
+			}
+    }
+	}
+	.column{
+		box-sizing: border-box;
+		&.align-right{
+			margin-left: auto;
+		}
+		&.align-left{
+			margin-right: auto;
+		}
+	}
+	.align-right{
+		margin-left: auto;
+	}
+	.align-left{
+		margin-right: auto;
+	}
+  &.stretch-items{
+		& > [class*="itemsize"],
+    & > .column > *{
+      height: 100%;
+      box-sizing: border-box;
+    }
+	}
+	@media screen and (max-width:1000px) {
+		@for $i from 1 through 10 {
+			&.desktop-#{$i}items{
+				& > .column{
+					max-width: calc(100% / #{$i});
+					width: 100%;
+				}
+			}
+		}
+		&.desktop-column-direction{
+			flex-direction: column;
+			& > *{
+				width: 100% !important;
+				max-width: 100% !important;
+			}
+		}
+	}
+	@media screen and (max-width:768px) {
+		@for $i from 1 through 10 {
+			&.tablet-#{$i}items{
+				& > .column{
+					max-width: calc(100% / #{$i});
+					width: 100%;
+				}
+			}
+		}
+		&.tablet-column-direction{
+			flex-direction: column;
+			& > *{
+				width: 100% !important;
+				max-width: 100% !important;
+			}
+		}
+		&.flexmargins4,
+		&.flexmargins3-5,
+		&.flexmargins3,
+		&.flexmargins2-5{
+			$flexmargin: 1.5rem;
+			margin-left: -$flexmargin !important;
+			margin-right: -$flexmargin !important;
+			& > .column{
+				padding-left: $flexmargin !important;
+				padding-right: $flexmargin  !important;
+				margin-bottom: $flexmargin*2 !important;
+			}
+		}
+		&.sidemargins{
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+	}
+	@media screen and (max-width:500px) {
+		@for $i from 1 through 10 {
+			&.mobile-#{$i}items{
+				& > .column{
+					max-width: calc(100% / #{$i});
+					width: 100%;
+				}
+			}
+		}
+		&.mobile-column-direction{
+			flex-direction: column;
+			& > *{
+				width: 100% !important;
+				max-width: 100% !important;
+			}
+		}
+		&.mobile-centered{
+			justify-content: center;
+		}
+		&.flexmargins4,
+		&.flexmargins3-5,
+		&.flexmargins3,
+		&.flexmargins2-5{
+			$flexmargin: .7rem;
+			margin-left: -$flexmargin !important;
+			margin-right: -$flexmargin !important;
+			& > .column{
+				padding-left: $flexmargin !important;
+				padding-right: $flexmargin !important;
+				margin-bottom: $flexmargin*2 !important;
+			}
+		}
+		&.sidemargins{
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+	}
+}
+
+/** 
+	5. Default max width sizes based on page width
+**/
+.size{
+	&-half{ 						// 1/2 ofpagewidth
+		width: 100%;
+		max-width: $pagewidth / 2;
+	}
+	&-third{  					// 1/3 ofpagewidth
+		width: 100%;
+		max-width: $pagewidth / 3;
+	}
+	&-twothirds{  			// 2/3 ofpagewidth
+		width: 100%;
+		max-width: $pagewidth - ($pagewidth / 3);
+	}
+	&-quarter{ 					// 1/4 ofpagewidth
+		width: 100%;
+		max-width: $pagewidth / 4;
+	}
+	&-threequarters{ 		// 3/4 ofpagewidth
+		width: 100%;
+		max-width: $pagewidth - ($pagewidth / 4);
+	}
+	&-fifth{		  			// 1/5 ofpagewidth
+		width: 100%;
+		max-width: $pagewidth - ($pagewidth / 5)*4;
+	}
+	&-twofifth{  				// 2/5 ofpagewidth
+		width: 100%;
+		max-width: $pagewidth - ($pagewidth / 5)*3;
+	}
+	&-threefifth{  			// 3/5 ofpagewidth
+		width: 100%;
+		max-width: $pagewidth - ($pagewidth / 5)*2;
+	}
+	&-fourfifth{  			// 4/5 ofpagewidth
+		width: 100%;
+		max-width: $pagewidth - ($pagewidth / 5);
+	}
+}
+.itemsize{
+	@for $i from 1 through 12 {
+		&-#{$i}{
+			width: 100%;
+			max-width: percentage($i / 12);
+		}
+	}
+}
+@media screen and (max-width:768px) {
+	.tablet-itemsize{
+		@for $i from 1 through 12 {
+			&-#{$i}{
+				width: 100%;
+				max-width: percentage($i / 12);
+			}
+		}
+	}
+	.tablet-hidden{
+		display: none;
+	}
+	.tablet-column-direction{
+		flex-direction: column;
+	}
+}
+@media screen and (max-width:500px) {
+	.mobile-itemsize{
+		@for $i from 1 through 12 {
+			&-#{$i}{
+				width: 100%;
+				max-width: percentage($i / 12);
+			}
+		}
+	}
+	.mobile-hidden{
+		display: none;
+	}	
+	.mobile-column-direction{
+		flex-direction: column;
+		.align-left,
+		.align-right{
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+}
+
+
+// 6. Fullwidth image inside container
+.is-fullwidth{
+  img{
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+// 7. Section Background cover
+.cover-bg{
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+	background-size: cover;
+}
+
+// 8. Section Background cover
+.section{
+	padding: 5rem 0;
+	&-dark{
+		.section-heading{
+			color: #fff;
+			h1, h2, h3, h4, h5, h6{
+				color: #fff;
+			}
+		}
+	}
+	&-heading{
+		padding-bottom: 3rem;
+		h2{
+			margin-bottom: 2rem;
+		}
+		h1, h2, h3, h4, h5, h6{
+			color: #333;
+		}
+	}
+}
+
+// 9. Text CSS
+.text{
+	&-center{
+		text-align: center;
+	}
+	&-left{
+		text-align: left;
+	}
+	&-right{
+		text-align: right;
+	}
+	&-uppercase{
+		text-transform: uppercase;
+	}
+	&-capitalize{
+		text-transform: capitalize;
+	}
+}
+
+// 10. Card
+.card{
+	box-shadow: 0 0 1.4rem rgba(1,1,1,.2);
+	background: #fff;
+}
+.card-image{
+	position: relative;
+	.cover-bg{
+		height: 100%;
+		display: block;
+	}
+}
+a.card-image{
+	display: block;
+	background: $themecolor;
+	.image{
+		@include animation;
+	}
+	&:hover{
+		.image{
+			opacity: .1;
+		}
+		.roll-text{
+			opacity: 1;
+		}
+	}
+	.roll-text{
+		opacity: 0;
+		@include vertical-align;
+		color: #fff;
+		@include animation;
+		text-align: center;
+		width: 100%;
+	}
+}
+.card-content{
+	padding:2rem 2.5rem 2.7rem 2.5rem;
+}
+
+// 11. List
+.list{
+	&-inline{
+		& > dt,
+		& > dd,
+		& > li{
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+	&-dashed{
+		li{
+			padding-left: 14px;
+			padding-bottom: 5px;
+			position: relative;
+			&:before{
+				content: '-';
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		}
+		&.list-inline{
+			li{
+				&:first-child{
+					padding-left: 0;
+					&:before{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	&-bullets{
+		li{
+			padding-left: 14px;
+			padding-bottom: 5px;
+			position: relative;
+			&:before{
+				content: '\2022';
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		}
+		&.list-inline{
+			li{
+				&:first-child{
+					padding-left: 0;
+					&:before{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+ol.list{
+	list-style-position: inside;
+}

@@ -1,0 +1,67 @@
+// fonts
+@font-face {
+	font-family: 'Montserrat';
+	src:	url('#{$fonts-path}subset-Montserrat-ExtraLight.woff2') format('woff2'),
+	url('#{$fonts-path}subset-Montserrat-ExtraLight.woff') format('woff');
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	src:	url('#{$fonts-path}subset-Montserrat-Bold.woff2') format('woff2'),
+	url('#{$fonts-path}subset-Montserrat-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Montserrat';
+	src:	url('#{$fonts-path}subset-Montserrat-Regular.woff2') format('woff2'),
+	url('#{$fonts-path}subset-Montserrat-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Montserrat';
+	src:	url('#{$fonts-path}subset-Montserrat-Light.woff2') format('woff2'),
+	url('#{$fonts-path}subset-Montserrat-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Quattrocento';
+	src: url('#{$fonts-path}subset-QuattrocentoRoman.woff2') format('woff2'),
+	url('#{$fonts-path}subset-QuattrocentoRoman.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'LibreBaskerville';
+	src: url('#{$fonts-path}subset-LibreBaskerville-Regular.woff2') format('woff2'),
+	url('#{$fonts-path}subset-LibreBaskerville-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'LibreBaskerville';
+	src: url('#{$fonts-path}subset-LibreBaskerville-Bold.woff2') format('woff2'),
+	url('#{$fonts-path}subset-LibreBaskerville-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+  font-family: 'fontawesomelight';
+  font-style: normal;
+  font-weight: 900;
+  src:  url('#{$fonts-path}fa-light-300.woff2') format('woff2'),
+  url('#{$fonts-path}fa-light-300.woff') format('woff');
+}
+
+.fal {
+  font-family: 'fontawesomelight';
+}
+
+@import "fontawesome/fontawesome";

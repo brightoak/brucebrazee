@@ -1,0 +1,109 @@
+@media screen and (max-width:1400px) {
+  .product{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    .button{
+      margin-left: -1rem;
+      margin-right: -1rem;
+    }
+  }
+}
+@media screen and (max-width:1000px) {
+	.samples{
+    padding: 3rem;
+  }
+}
+@media screen and (max-width:768px) {
+  .hero{
+    min-height: auto;
+    padding-bottom: 0;
+    h1{
+      font-size: 5rem;
+    }
+    .wrapper{
+      padding: 5rem 2rem;
+    }
+  }
+  .samples{
+    margin-bottom: 4rem;
+  }
+  .filters-bar{
+    margin-bottom: 0;
+    & > *{
+      margin-bottom: 3rem;
+    }
+  }
+  #request-popup{
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+@media screen and (max-width:700px) {
+  #header{
+    flex-direction: column;
+    .logo{
+      margin-bottom: 3rem;
+    }
+    .align-right{
+      margin: 0 auto;
+    }
+    .nav{
+      font-weight: bold;
+    }
+  }
+}
+@media screen and (max-width:500px) {
+  #container{
+    margin: 1rem;
+  }
+  #header{
+    padding: 1rem;
+  }
+  .hero{
+    h1{
+      font-size: 3.3rem;
+    }
+  }
+  .samples{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    h2{
+      font-size: 2.7rem;
+    }
+  }
+  .button{
+    min-width: auto;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+  .subscribe-form{
+    .set{
+      height: auto;
+      & > *{
+        height: 50px !important;
+        border-radius: 50px;
+      }
+      .txt{
+        margin-bottom: 30px;
+      }
+      .button{
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+  .about-brucebrazee{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  #footer{
+    text-align: center;
+    p{
+      margin-bottom: 10px;
+    }
+  }
+  #request-popup{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
