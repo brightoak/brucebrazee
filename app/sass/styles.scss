@@ -2,6 +2,7 @@
 @import "reset";
 @import "fonts";
 @import "../../node_modules/tiny-slider/dist/tiny-slider";
+@import "../../node_modules/custom-select/build/custom-select";
 @import "base";
 
 // rem is based on font size of <html> element, default set to 10px
@@ -24,6 +25,9 @@
 	&.headroom {
 		will-change: transform;
 		transition: all 200ms linear;
+	}
+	&.headroom--top{
+		position: absolute;
 	}
 	&.headroom--not-top{
 		background: #000;
@@ -408,6 +412,16 @@
 	.series{
 		margin-bottom: 0;
 	}
+	&.submitted{
+		.tabs-content,
+		.tabset{
+			display: none;
+		}
+		.request-text-sent,
+		.request-sent{
+			display: block;
+		}
+	}
 }
 #fader{
 	position: fixed;
@@ -480,6 +494,83 @@
 	select{
 		display: block;
 		width: 100%;
+	}
+}
+.custom-select-container{
+	height: 6rem;
+}
+.custom-select-opener{
+	padding: 3rem 2rem 1rem;
+	box-sizing: border-box;
+	color: #333;
+	line-height: 2rem;
+	height: 100%;
+	background: none;
+	position: relative;
+	border-radius: .8rem;
+	font-size: 1.5rem;
+	&:after{
+		content: '\f0d7';
+		position: absolute;
+		right: 16px;
+		top: 30px;
+		font-family: 'fontawesomesolid';
+		line-height: 0;
+	}
+	.is-open &{
+		border-radius: .8rem .8rem 0 0;
+	}
+}
+.custom-select-panel{
+	transition: none;
+	border-radius: 0 0 .8rem .8rem;
+	background: #f2f2f2;
+	.custom-select-option{
+		cursor: pointer;
+	}
+	.custom-select-option:first-child{
+		display: none;
+	}
+}
+.select-holder{
+	overflow: visible;
+}
+.error-message{
+	display: none;
+}
+.error-holder{
+	background: #f5a4a4;
+	border-radius: .8rem;
+}
+#samples-slider > .tns-item{
+	display: flex;
+}
+.request-sent{
+	text-align: center;
+	padding-bottom: 50px;
+	padding-top: 16px;
+	display: none;
+	.ico{
+		display: inline-block;
+		margin-bottom: 30px;
+	}
+	strong{
+		display: block;
+		font: 22px $fonts2;
+		color: #7fcf67;
+	}
+}
+.request-text-sent{
+	color: #333;
+	font-size: 15px;
+	display: none;
+	.button{
+		display: block;
+		cursor: pointer;
+		margin-bottom: 0 !important;
+	}
+	p{
+		margin-bottom: 40px;
 	}
 }
 @import "responsive";

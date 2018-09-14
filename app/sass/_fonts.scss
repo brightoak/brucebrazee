@@ -60,8 +60,19 @@
   url('#{$fonts-path}fa-light-300.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'fontawesomesolid';
+  font-style: normal;
+  font-weight: 900;
+  src:  url('#{$fonts-path}fa-solid-900.woff2') format('woff2'),
+  url('#{$fonts-path}fa-solid-900.woff') format('woff');
+}
+
 .fal {
   font-family: 'fontawesomelight';
+}
+.fas {
+  font-family: 'fontawesomesolid';
 }
 
 @import "fontawesome/fontawesome";

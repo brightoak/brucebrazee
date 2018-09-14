@@ -67,4 +67,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Smooth scroll
   new SmoothScroll('.nav a', { updateURL: false, offset: 70 });
+
+  customSelect('select');
+
+  document.getElementById('state').onchange = changeEventHandler;
+
+  function changeEventHandler(event) {
+    if (event.target.value) {
+      if (event.target.classList.contains('error')) {
+        event.target.classList.remove('error');
+        event.target.parentElement.classList.remove('error-holder');
+      }
+    }
+  }
+
+  document.getElementById('request-sample-form').onsubmit = submitEventHandler;
+  document.getElementById('request-quote-form').onsubmit = submitEventHandler;
+
+  function submitEventHandler(event) {
+    event.preventDefault();
+  }
+
+  validate.init({
+    afterShowError: function afterShowError(field) {
+      field.parentElement.classList.add('error-holder');
+    },
+    afterRemoveError: function afterRemoveError(field) {
+      field.parentElement.classList.remove('error-holder');
+    },
+    onSubmit: function onSubmit(form, fields) {
+      var popup = document.getElementById('request-popup');
+      popup.classList.add('submitted');
+      popup.querySelector('.request-text-sent .button').onclick = function () {
+        fader.classList.add('hidden');
+        requestPopup.classList.add('hidden');
+        popup.classList.remove('submitted');
+      };
+    }
+  });
 });
